@@ -11,7 +11,7 @@ init() {
     sleep 2
 
     docker rm -f $(docker ps -qa) || sleep 1
-    docker rmi -f $(docker images -q) 
+    docker rmi -f $(docker images -q) || sleep 1
 
     echo "Docker environment cleared."
 }
