@@ -20,7 +20,7 @@ init() {
 build_docker_containers() {
     echo "Building images..."
     sleep 1
-    docker build -t $DOCKER_ID/$DOCKER_IMAGE && echo "Image creation successful."
+    docker build -t $DOCKER_ID/$DOCKER_IMAGE . && echo "Image creation successful."
     docker push $DOCKER_ID/$DOCKER_IMAGE && echo "Image pushed to DockerHub."
 }
 
