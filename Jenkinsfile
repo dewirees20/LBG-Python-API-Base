@@ -37,7 +37,7 @@ pipeline {
         }
 
         onFailure {
-            sh "docker logs $(docker ps -aq)"
+            sh "docker logs \$(docker ps -aq)"
         }
     } 
 }
