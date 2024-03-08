@@ -1,5 +1,7 @@
 pipeline {
+
     agent any
+
     stages {
         stage('Build') {
             steps {
@@ -8,12 +10,29 @@ pipeline {
                 '''
            }
         }
+
+        stage('Test') {
+            steps {
+                sh '''
+                echo "Testing..."
+                sleep 3
+                echo "Testing Complete."
+                '''
+            }
+        }
+
         stage('Deploy') {
             steps {
                 sh '''
-                
+                setup.sh
                 '''
             }
         }
     }
+    
+    post {
+        always {
+            sh "docker system prune -f"
+        }
+    } 
 }
