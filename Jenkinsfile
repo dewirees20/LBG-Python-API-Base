@@ -24,7 +24,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                setup.sh
+                chmod +x ./setup.sh
+                ./setup.sh
                 '''
             }
         }
