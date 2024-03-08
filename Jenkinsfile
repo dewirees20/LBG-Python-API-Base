@@ -34,5 +34,9 @@ pipeline {
         always {
             sh "docker system prune -f"
         }
+
+        onFailure {
+            sh "docker logs $(docker ps -aq)"
+        }
     } 
 }
