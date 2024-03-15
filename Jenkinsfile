@@ -51,8 +51,8 @@ pipeline {
             steps {
                 sh "gcloud config set account dwr-k8s-service@lbg-mea-17.iam.gserviceaccount.com"
                 sh "kubectl create ns $NAME_SPACE || true"
-                sh "sed -e 's,{{API_IMAGE}},'$API_IMAGE',g;' kubernetes/application.yml | tee kubernetes/application.yml"
-                sh "sed -e 's,{{API_VERSION}},'$API_VERSION',g;' kubernetes/application.yml | tee kubernetes/application.yml"
+                //sh "sed -e 's,{{API_IMAGE}},'$API_IMAGE',g;' kubernetes/application.yml | tee kubernetes/application.yml"
+                //sh "sed -e 's,{{API_VERSION}},'$API_VERSION',g;' kubernetes/application.yml | tee kubernetes/application.yml"
                 sh "kubectl apply -f kubernetes --namespace $NAME_SPACE"
                 sh "sleep 60"
                 sh "kubectl get services --namespace $NAME_SPACE"
