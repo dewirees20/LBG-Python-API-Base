@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-app
+  labels:
+    run: api-app
+spec:
+  ports:
+  - port: 80
+    targetPort: 5000
+    protocol: TCP
+  selector:
+    run: api-app
+  type: LoadBalancer

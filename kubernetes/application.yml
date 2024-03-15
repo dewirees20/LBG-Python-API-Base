@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: api-app
+  name: api-deploy
+spec:
+  selector:
+    matchLabels:
+      run: api-app
+  replicas: 2
+  strategy:
+    rollingUpdate:
+      maxSurge: 20%
+      maxUnavailable: 20%
+  template:
+    metadata:
+      labels:
+        run: api-app
+    spec:
+      containers:
+      - image: eu.gcr.io/lbg-mea-17/{{API_IMAGE}}:{{API_VERSION}}
+        name: api-container
+      ports:
+      - containerPort: 5000
