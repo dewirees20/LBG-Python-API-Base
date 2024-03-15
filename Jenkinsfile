@@ -4,7 +4,7 @@ pipeline {
 
     environment {
         REGISTRY = "eu.gcr.io/lbg-mea-17"
-        API_IMAGE = "dwr-"
+        API_IMAGE = "dwr-api-app"
         API_VERSION = "v1"
         NAME_SPACE = "assignment"
     }
