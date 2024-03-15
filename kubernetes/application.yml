@@ -19,7 +19,7 @@ spec:
         run: api-app
     spec:
       containers:
-      - image: eu.gcr.io/lbg-mea-17/{{API_IMAGE}}:{{API_VERSION}}
+      - image: eu.gcr.io/lbg-mea-17/dwr-api-app:v1
         name: api-container
         ports:
         - containerPort: 8080
