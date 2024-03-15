@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: flask-deployment
   labels:
-    run: api-app
-  name: api-app
+    app: flask
 spec:
+  replicas: 2
   selector:
     matchLabels:
-      run: api-app
-  replicas: 2
+      app: flask
   strategy:
     rollingUpdate:
       maxSurge: 20%
@@ -16,10 +16,11 @@ spec:
   template:
     metadata:
       labels:
-        run: api-app
+        app: flask
     spec:
       containers:
-      - image: eu.gcr.io/lbg-mea-17/dwr-api-app:v1
-        name: api-container
+      - name: flask-container
+        image: gcr.io/lbg-uplift-project/dwr-api-app:v1
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
