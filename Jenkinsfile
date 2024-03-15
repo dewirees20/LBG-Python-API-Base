@@ -62,9 +62,9 @@ pipeline {
     
     post {
         always {
-            sh "docker stop \$(docker ps -q) || true"
-            sh "docker rm \$(docker ps -qa) || true"
-            sh "docker rmi -f \$(docker images -q) ||"
+            //sh "docker stop \$(docker ps -q) || true"
+            //sh "docker rm \$(docker ps -qa) || true"
+            //sh "docker rmi -f \$(docker images -q) ||"
             sh "docker system prune -f"
             sh "gcloud config set account null"
         }
