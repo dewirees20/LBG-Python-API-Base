@@ -22,4 +22,4 @@ spec:
       - image: eu.gcr.io/lbg-mea-17/{{API_IMAGE}}:{{API_VERSION}}
         name: api-container
       ports:
-      - containerPort: 5000
+      - containerPort: 8080
