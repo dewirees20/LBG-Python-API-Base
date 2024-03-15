@@ -3,11 +3,11 @@ kind: Deployment
 metadata:
   labels:
     run: api-app
-  name: api-deploy
+  name: api-app
 spec:
   selector:
     matchLabels:
-      app: api-app
+      run: api-app
   replicas: 2
   strategy:
     rollingUpdate:
@@ -21,5 +21,5 @@ spec:
       containers:
       - image: eu.gcr.io/lbg-mea-17/{{API_IMAGE}}:{{API_VERSION}}
         name: api-container
-      ports:
-      - containerPort: 8080
+        ports:
+        - containerPort: 8080
