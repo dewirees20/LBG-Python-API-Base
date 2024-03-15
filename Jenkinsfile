@@ -12,9 +12,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Building $REGISTRY/$API_IMAGE:$API_VERSION ..."
                 sh "docker build -t $REGISTRY/$API_IMAGE:$API_VERSION ."
-                echo "$REGISTRY/$API_IMAGE:$API_VERSION built successfully"
            }
         }
 
@@ -22,7 +20,6 @@ pipeline {
             steps {
                 sh """
                 echo "Testing..."
-                sleep 3
                 echo "Testing Complete."
                 """
             }
@@ -41,7 +38,6 @@ pipeline {
             steps {
                 sh """
                 echo "Testing k8s Deployment..."
-                sleep 3
                 echo "Testing Complete."
                 """
             }
@@ -70,7 +66,8 @@ pipeline {
         }
 
         failure {
-            sh "kubectl delete ns $NAME_SPACE || true"
+            //sh "kubectl delete ns $NAME_SPACE || true"
+            echo "Failed"
         }
     } 
 }

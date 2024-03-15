@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: flask-container
-        image: gcr.io/lbg-uplift-project/dwr-api-app:v1
+        image: eu.gcr.io/lbg-mea-17/dwr-api-app:v1
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
